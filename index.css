@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --input-bg: #2c2c2c;
+    --text-color: #e0e0e0;
+    --border-color: #444;
+    --accent: #007bff;
+    --hover: #0056b3;
+    --reverse: #6c757d;
+    --loader-bg: #333;
+    --loader-top: #007bff;
+    --result-bg: #1a1a1a;
+    --history-bg: #222;
+    --history-hover: #555;
+}
+
+body.light {
+    --bg-color: #f4f4f4;
+    --container-bg: #ffffff;
+    --input-bg: #f9f9f9;
+    --text-color: #1e1e1e;
+    --border-color: #ccc;
+    --accent: #007bff;
+    --hover: #0056b3;
+    --reverse: #adb5bd;
+    --loader-bg: #ddd;
+    --loader-top: #007bff;
+    --result-bg: #f0f0f0;
+    --history-bg: #fff3cd;
+    --history-hover: #ffeeba;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 30px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: var(--container-bg);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1s ease;
+}
+
+h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    animation: slideDown 0.8s ease;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    color: #bbbbbb;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #333;
+}
+
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.2s ease;
+}
+
+button:hover {
+    background: var(--hover);
+    transform: scale(1.03);
+}
+
+#reverseBtn {
+    background: var(--reverse);
+    margin-top: 10px;
+}
+
+.loader {
+    display: none;
+    margin: 15px auto;
+    border: 5px solid var(--loader-bg);
+    border-top: 5px solid var(--loader-top);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.result {
+    margin-top: 25px;
+    background: var(--result-bg);
+    padding: 20px;
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.step {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.4s ease forwards;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.history {
+    margin-top: 25px;
+    padding: 15px;
+    background: var(--history-bg);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    animation: fadeIn 0.8s ease;
+}
+
+.history span {
+    display: inline-block;
+    background: #333;
+    padding: 6px 10px;
+    margin: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.history span:hover {
+    background: var(--history-hover);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    z-index: 999;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+@media(max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}

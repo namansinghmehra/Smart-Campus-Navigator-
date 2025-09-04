@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart College Path Finder</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h2>🏫 Smart College Path Finder</h2>
+
+    <label for="startInput">Start Location:</label>
+    <input type="text" id="startInput" placeholder="Type or choose..." list="locationList" />
+
+    <label for="endInput">Destination Location:</label>
+    <input type="text" id="endInput" placeholder="Type or choose..." list="locationList" />
+
+    <datalist id="locationList">
+      <option value="Main Entrance" >
+      <option value="Reception" >
+      <option value="Computer Lab" >
+      <option value="Library" >
+      <option value="Lecture Theatre" >
+      <option value="Class Room (West)" >
+      <option value="Class Room (South)" >
+      <option value="Electronics Lab" >
+      <option value="Physics Lab" >
+      <option value="HM Classroom" >
+      <option value="HM Lounge" >
+      <option value="Restaurant" >
+      <option value="HM Kitchen" >
+      <option value="Cafeteria" >
+      <option value="Mass Media Studio" >
+    </datalist>
+
+    <button id="reverseBtn" onclick="swapInputs()">🔁 Reverse Route</button>
+    <button onclick="findPath()">Find Shortest Path</button>
+
+    <div class="loader" id="loader"></div>
+    <div id="result" class="result"></div>
+
+    <div class="history" id="historyBox">
+      <strong>Recent Paths:</strong>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
